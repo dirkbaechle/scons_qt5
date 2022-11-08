@@ -43,7 +43,7 @@ import SCons.Scanner
 import SCons.Tool
 import SCons.Util
 
-class ToolQt5Warning(SCons.Warnings.Warning):
+class ToolQt5Warning(SCons.Warnings.SConsWarning):
     pass
 
 class GeneratedMocFileNotIncluded(ToolQt5Warning):
@@ -771,7 +771,7 @@ def generate(env):
         QT5_QRCCXXPREFIX = 'qrc_',
         QT5_MOCDEFPREFIX = '-D',
         QT5_MOCDEFSUFFIX = '',
-        QT5_MOCDEFINES = '${_defines(QT5_MOCDEFPREFIX, CPPDEFINES, QT5_MOCDEFSUFFIX, __env__)}',
+        QT5_MOCDEFINES = '${_defines(QT5_MOCDEFPREFIX, CPPDEFINES, QT5_MOCDEFSUFFIX, __env__, TARGET, SOURCE)}',
         QT5_MOCCPPPATH = [],
         QT5_MOCINCFLAGS = '$( ${_concat(QT5_MOCINCPREFIX, QT5_MOCCPPPATH, INCSUFFIX, __env__, RDirs)} $)',
 
